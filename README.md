@@ -1,5 +1,5 @@
 ## medpickr
-*Drug data visualization app that supports physician treatent-selection decisions*
+*Drug data visualization app that supports physician treatent-selection*
 
 
 ### Background and Overview
