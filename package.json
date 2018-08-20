@@ -1,0 +1,26 @@
+{
+  "name": "medpickr",
+  "version": "1.0.0",
+  "description": "*Drug data visualization app that supports physician treatment-selection*",
+  "main": "entry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lockjohn/medpickr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lockjohn/medpickr/issues"
+  },
+  "homepage": "https://github.com/lockjohn/medpickr#readme",
+  "dependencies": {
+    "d3": "^5.6.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  }
+}

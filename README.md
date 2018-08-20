@@ -45,6 +45,7 @@ The project requires:
 `index.html`: to house basic canvas layout and following script files:
 
 `dataDisplay.js`: D3 script to provide visualization of data objects
+
 `data.js`: to house prototype data for one example diagnostic class (with future implementation to a backend database)
 
 `styles.css`
