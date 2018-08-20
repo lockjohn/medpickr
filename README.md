@@ -24,6 +24,8 @@ In addition, this project will include:
 
 ### Wireframes
 
+https://drive.google.com/file/d/1CIME6mb61r66Kyh9TpmuYJN-4a6_0Ir3/view?usp=sharing
+
 This app will consist of a sidebar with the dropdown selector for primary diagnosis and box below it to list canditate drugs, a comparison canvas to the left, toggle controls for display of drug-informetrics, canvas size-controls to zoom in or out to allow for more drug comparisons, and nav links to the Github, my LinkedIn, and the About and Details modals.  
 
 Users will drag and drop drugs from list into canvase to intiate data display, and select data display options below the canvas to change analysis parameters.
