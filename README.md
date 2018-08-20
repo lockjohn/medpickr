@@ -59,7 +59,7 @@ The project requires:
 
 **Day 1**: Goals: Basic Layout
 
-- [ ] layout structure of index.html
+- [x] layout structure of index.html
 - [ ] build out information data structure of diagnosis/drug-name/NNT/NNH
 
 **Day 2**: Goals: Deeper Dive into D3
