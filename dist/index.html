@@ -20,20 +20,37 @@
             </ul>
         </nav>
         <article class="content">
-            <canvas id="canvas"></canvas>
+            <!-- <canvas id="canvas"></canvas> -->
+            <div class="svg-container">
+                <svg version="1.1" width="1000" height="600" viewBox="0 0 16 9">
+                    <defs>
+                        <g id="pill" transform="scale(0.5)">
+                        <rect x="-1" y="-1" width="5" height="2" fill="silver" stroke="black" stroke-width="0.1" ry="1" rx="1" />
+                        <rect x="-1" y="-1" width="2.5" height="2" fill="red" stroke="black" stroke-width="0.1" ry="1" rx="1" />
+                    </g>
+                    </defs>
+                </svg>
+            </div>
         </article>
         <aside class="side">
-            <select name="diagnosis" id="diagnosis-selector">
-                <option value="Acute Cardiac Arrest">Acute Cardiac Arrest</option>
+            <!-- <select id="diagnosis">
                 <option value="Major Depressive Disorder">Major Depressive Disorder</option>
-                <option value="Acute Bronchitis">Acute Bronchitis</option>
+                <option value="A Fib">A Fib</option>
+                <option value="Acute Bronchitis" >Acute Bronchitis</option>
                 <option value="Psychosis">Psychosis</option>
-                <div class="drug-list"></div>
-            </select>
+            </select> -->
+            <div class="drug-list"></div>
         </aside>
         <div class="tools">toggle conditiosn for data display</div>
         <footer class="main-footer">further explanatino of biostatistical measures</footer>
     </div>
+
+<!-- <script>
+    import * as d3 from "d3";
+
+    
+</script> -->
 </body>
 </html>
+
 
