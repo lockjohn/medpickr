@@ -47,14 +47,15 @@ nav ul {
 
 }
 
-@media (min-width: 750px) {
+@media (min-width: 1000px) {
 .wrapper {
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas:
         "header  header  header"
         "nav     nav     nav"
-        "sidebar content tools"
-        "sidebar content tools"
+        "sidebar content content"
+        "sidebar content content"
+        "tools tools tools"
         "footer  footer  footer"
 }
 }
