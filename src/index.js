@@ -25,14 +25,25 @@ document.addEventListener("DOMContentLoaded", () => {
 // console.log(dropdown);
 // console.log(dropdown.options.selectedIndex);
 // console.log(dropdown.option);
+
+
 const diagnoses = ["MDD", "A Fib Stroke", "Acute Bronchitis", "Psychosis"];
     const drugs = [["fluoxetine"], ["aspirin", "warfarin"], ["cipro","azithromycin"], ["haldol", "aripiprazole"]]
 let selectValue;
 let drugsToList;
+const svg = d3.select("svg");
+
+const width = svg.attr("width");
+const height = svg.attr("height");
+
+
+let color = d3.scaleOrdinal()
+        .range(d3.schemeCategory10);
+
 const select = d3.select('aside')
   .append('select')
   	.attr('class','select')
-    .on('change',onchange)
+    .on('change', onchange)
 
 const options = select
   .selectAll('option')
@@ -42,22 +53,80 @@ const options = select
 
 function onchange() {
     selectValue = d3.select('select').property('value')
-    console.log(diagnoses.indexOf(selectValue));
-    console.log(drugs[diagnoses.indexOf(selectValue)]);
-    
     drugsToList = drugs[diagnoses.indexOf(selectValue)]
-    console.log(drugsToList);
+    
+    var pills = d3.range(drugsToList.length).map(function () {
+        return {
+            x: Math.round(Math.random() * width + 35),
+            y: Math.round(Math.random() * height + 35)
+        };
+    });
+    console.log(pills);
+    
     
     let s = d3.select('aside')
-        .selectAll('p')
-        .data(drugsToList)
-            .text(function (d) { return d; })
+    .selectAll('p')
+    .data(drugsToList)
+    .text(function (d) { return d; } )
+    
+    s.enter().append("p")
+    .text(function (d){ return d; } )
+    .select('svg')
+    
+    s.exit().remove()
+    
+    console.log(svg);
+    
+    d3.select("svg").data(pills)
+        .enter().append("use")
+        .attr("href", "#pill")
+        .attr("x", function (d) { 
+            console.log(d);
+            
+            return d.x; })
+        .attr("y", function (d) { return d.y; })
+        .style("fill", function (d, i) { return color(i); })
 
-        s.enter().append("p")
-            .text(function (d){ return d;})
-   
-        s.exit().remove()
-    };
+    //     .call(d3.drag()
+    //         .on("start", dragstarted)
+    //         .on("drag", dragged)
+    //         .on("end", dragended));
+
+    // function dragstarted(d) {
+    //     d3.select(this).raise().classed("active", true);
+    // }
+
+    // function dragged(d) {
+    //     d3.select(this).attr("x", d.x = d3.event.x).attr("y", d.y = d3.event.y);
+    // }
+
+    // function dragended(d) {
+    //     d3.select(this).classed("active", false);
+    // }
+};
+
+// const ps = d3.selectAll('p')
+
+svg.on("click", function () {
+    let mouse = d3.mouse(this);
+    // console.log(mouse[0], mouse[1]);
+    
+       const pill = svg
+        .append("use")
+        .attr("href", "#pill")
+        .attr("x", mouse[0])
+        .attr("y", mouse[1])
+           .style("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) })
+            
+    const dragHandler = d3.drag()
+        .on("drag", function () {
+            d3.select(this)
+                .attr("x", d3.event.x)
+                .attr("y", d3.event.y);
+        });
+
+        dragHandler(pill);
+});
 
     // var data = ["Option 1", "Option 2", "Option 3"];
 
@@ -96,41 +165,8 @@ function onchange() {
 
 // d3.select('.drug-list').selectAll('p').data(drugs).enter().append('p').text(function(d){ return d;});
 
-const svg = d3.select("svg");
-
-svg.on("click", function () {
-    let mouse = d3.mouse(this);
-    // console.log(mouse[0], mouse[1]);
-    
-       const pill = svg
-        .append("use")
-        .attr("href", "#pill")
-        .attr("x", mouse[0])
-        .attr("y", mouse[1])
-        
-
-    // pill.on("click", function () {
-    //     if (d3.event.ctrlKey) {
-    //         pill.transition()
-    //             .duration(500)
-    //             .attr("transform", "translate(" + pill.attr("x") + "," + pill.attr("y") + ") scale(0)")
-    //             .remove();
-    //     }
-    //     d3.event.stopPropagation();
-    // });
-    const dragHandler = d3.drag()
-        .on("drag", function () {
-            console.log('drag');
-            console.log(this);
-            console.log(d3.event.x, d3.event.y);
 
 
-            d3.select(this)
-                .attr("x", d3.event.x)
-                .attr("y", d3.event.y);
-        });
-        dragHandler(pill);
-});
 
 
 });
