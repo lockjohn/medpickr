@@ -1,12 +1,12 @@
 import * as d3 from 'd3';
 
-var dataArray1 = [30, 35, 45, 55, 70];
-var dataArray2 = [50, 55, 45, 35, 20, 25, 25, 40];
+export const dataArray1 = [30, 35, 45, 55, 70];
+export const dataArray2 = [50, 55, 45, 35, 20, 25, 25, 40];
 
 //globals
 let dxChoice;
 let circle;
-let color = d3.scaleOrdinal()
+let color = d3.scaleOrdainal()
     .range(d3.schemeCategory10);
 var dataIndex = 1;
 var dataIndices = [dataArray1, dataArray2]; //will become options, aka named by dx and hold drug object data?
@@ -15,7 +15,6 @@ var secDataSet = dataIndices[1];
 var xBuffer = 50;
 var yBuffer = 150;
 var lineLength = 400;
-
 
 
 
@@ -62,31 +61,20 @@ d3.select("header").append('select')
 
         dxChoice = d3.select('select').property('value')
         dxChoice = dxChoice.split(',');
-        // dxChoice = secDataSet;
-        // console.log("dx", dxChoice);
-        //prev example where 'value' was a 'color'
-        // d3.select('circle')
-        //   .transition()
-        //   .duration(1000)
-        //   .attr('fill',colorsChoice)
+       
 
         circle = svgDoc.select("g").selectAll("circle")
             .data(dxChoice);
-        // console.log('update:', circle.size());
-        // circle.exit().remove();//remove unneeded circles
-        // console.log('exit:',circle.size());
+       
         circle.exit().remove();
         circle.enter().append("circle")
             .attr("r", 0);
-        // .merge(circle)//merge needed? fix other prob first
-        // .attr("r",0);//create any new circles needed
-        // console.log('enter/update:',circle.size());
-        //update all circles to new positions
+        
         svgDoc.select("g").selectAll("circle")
             .data(dxChoice).transition()
             .duration(500)
             .attr("cx", function (d, i) {
-                // var spacing = lineLength/(eval("dataArray"+dataIndex).length);
+              
                 var spacing = lineLength / (dxChoice.length);
                 return xBuffer + (i * spacing)
             })

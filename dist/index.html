@@ -6,7 +6,7 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <script src="main.js"></script>
+    
 </head>
 
 <body>
@@ -20,10 +20,11 @@
             </ul>
         </nav>
         <article class="content">
-            <!-- <canvas id="canvas"></canvas> -->
+            
             <div class="drug-list"></div>
+            <div class="chart-example" id="chart"> <svg></svg> </div>
             <div class="svg-container">
-                <svg version="1.1" width="1000" height="600" viewBox="0 0 16 9">
+                <svg id="pills" version="1.1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 600 400">
                     <defs>
                         <g id="pill" transform="scale(0.5)">
                         <rect x="-1" y="-1" width="5" height="2"  stroke="black" stroke-width="0.1" ry="1" rx="1" />
@@ -39,8 +40,7 @@
         <div class="tools">toggle conditiosn for data display</div>
         <footer class="main-footer">further explanatino of biostatistical measures</footer>
     </div>
-
-
+    <script src="main.js"></script>
 </body>
 </html>
 
