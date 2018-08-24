@@ -28646,22 +28646,22 @@ __webpack_require__.r(__webpack_exports__);
     let color = d3__WEBPACK_IMPORTED_MODULE_0__["scaleOrdinal"]()
         .range(d3__WEBPACK_IMPORTED_MODULE_0__["schemeCategory10"]);
 
-    const svgDoc = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("#pills")
-        .append("div")
-        .classed("svg-container", true) //container class to make it responsive
-        .append("svg")
-        //responsive SVG needs these 2 attributes and no width and height attr
-        .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", "0 0 600 400")
-        //class to make it responsive
-        .classed("svg-content-responsive", true);
+    // const svgDoc = d3.select("#pills")
+    //     .append("div")
+    //     .classed("svg-container", true) //container class to make it responsive
+    //     .append("svg")
+    //     //responsive SVG needs these 2 attributes and no width and height attr
+    //     .attr("preserveAspectRatio", "xMinYMin meet")
+    //     .attr("viewBox", "0 0 600 400")
+    //     //class to make it responsive
+    //     .classed("svg-content-responsive", true);
     
-    const svg = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("#pills");
+    const   container = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("#pills");
 
-    svg.on("click", function () {
+    container.on("click", function () {
         let mouse = d3__WEBPACK_IMPORTED_MODULE_0__["mouse"](this);
 
-        const pill = this
+        const pill = container
             .append("use")
             .attr("href", "#pill")
             .attr("x", mouse[0])
