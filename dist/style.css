@@ -28,6 +28,7 @@ html, body {
 
 .side h2 {
  font-size: 30px;
+ font-weight: 600;
  text-align: right;
  padding-bottom: 700px;
 }
