@@ -12,19 +12,33 @@ html, body {
   grid-area: content;
 }
 .main-nav {
+  display: none;
   grid-area: nav;
   border: ghostwhite 1px solid;
+  /* visibility: hidden; */
 }
 .side {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
   grid-area: sidebar;
-  border: ghostwhite 1px solid;
+  padding-left: 25px;
+  /* border: ghostwhite 1px solid; */
+}
+
+.side h2 {
+ font-size: 30px;
+ text-align: right;
+ padding-bottom: 700px;
 }
 .tools {
   padding-top: 10px;
   grid-area: tools;
-  border: ghostwhite 1px solid;
+  /* border: ghostwhite 1px solid; */
 }
 .main-footer {
+  padding: 80px;
+  margin: 50px 0;
   grid-area: footer;
 }
 
