@@ -1,20 +1,19 @@
-export const dx = ["MDD", "AFIB", "CARDIOVASCULAR_DISEASE_PREV"]
 
 export const antidepressantClasses = [
-  {id: "TCA", measure1: "NNT", m1:"8.5", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
-  {id: "SSRI", measure1: "NNT", m1:"6", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
-  {id: "SNRI", measure1: "NNT", m1:"6.5", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
+  {tag: "MDD", id: "TCA", measure1: "NNT", m1:"8.5", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
+  {tag: "MDD", id: "SSRI", measure1: "NNT", m1:"6", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
+  {tag: "MDD", id: "SNRI", measure1: "NNT", m1:"6.5", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
 ]
 export const anticoagulants = [
-  {id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:"4%", info: "compared to Placebo: http://www.thennt.com/nnt/warfarin-for-atrial-fibrillation-stroke-prevention/" },
-  {id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:"1.6%", info: "compared to Aspirin: http://www.thennt.com/nnt/warfarin-vs-aspirin-for-atrial-fibrillation-stroke-prevention/" }
+  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:"4%", info: "compared to Placebo: http://www.thennt.com/nnt/warfarin-for-atrial-fibrillation-stroke-prevention/" },
+  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:"1.6%", info: "compared to Aspirin: http://www.thennt.com/nnt/warfarin-vs-aspirin-for-atrial-fibrillation-stroke-prevention/" }
 ]
 
 export const statinPrimaryCVD = [
-  {id: "Statin for 5 yrs", measure1:"saw no benefit" ,m1:"96%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {id: "Statin for 5 yrs", measure1:"save from death" ,m1:"1.2%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {id: "Statin for 5 yrs", measure1:"preventing repeat MI" ,m1:"2.6%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {id: "Statin for 5 yrs", measure1:"preventing stroke" ,m1:"0,8%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"}
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"saw no benefit" ,m1:"96%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"save from death" ,m1:"1.2%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing repeat MI" ,m1:"2.6%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing stroke" ,m1:"0,8%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"}
 ]
 
 //force bubbleChart
@@ -40,21 +39,7 @@ export const antidepressantDetail = [
   {id: "Venlafaxine", measure1: "NNT", m1:"6", info: "http://www.publish.csiro.au/hc/pdf/HC16008" }
 ]
 
-//bar graph
-export const statinNNTH = [
-  {measure1: "developing diabetes", m1: "2%", info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/" },
-  {measure1: "rhabdomyolysis", m1: "10%", info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/" }
-]
+// //bar graph
+// export const statinNNTH = [ {measure1: "developing diabetes", m1: "2%", info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/" },
+//   {measure1: "rhabdomyolysis", m1: "10%", info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/" } ]
 
-
-
-// if (dx===MDD) {
-//   select antidepressantClasses
-//   bubbleChart(antidepressantDetail)
-// } else if (dx===AFIB) {
-//   select anticoagulants
-// } else if (dx===CARDIOVASCULAR_DISEASE_PREV) {
-//   select statinPrimaryCVD
-//   bubbleChart(statin)
-//   bar graph (statinNNTH)
-// }

@@ -28514,35 +28514,32 @@ const bubbleChart = () => {
 /*!**************************!*\
   !*** ./src/drug_data.js ***!
   \**************************/
-/*! exports provided: dx, antidepressantClasses, anticoagulants, statinPrimaryCVD, statin, antidepressantDetail, statinNNTH */
+/*! exports provided: antidepressantClasses, anticoagulants, statinPrimaryCVD, statin, antidepressantDetail */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dx", function() { return dx; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "antidepressantClasses", function() { return antidepressantClasses; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "anticoagulants", function() { return anticoagulants; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "statinPrimaryCVD", function() { return statinPrimaryCVD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "statin", function() { return statin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "antidepressantDetail", function() { return antidepressantDetail; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "statinNNTH", function() { return statinNNTH; });
-const dx = ["MDD", "AFIB", "CARDIOVASCULAR_DISEASE_PREV"]
 
 const antidepressantClasses = [
-  {id: "TCA", measure1: "NNT", m1:"8.5", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
-  {id: "SSRI", measure1: "NNT", m1:"6", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
-  {id: "SNRI", measure1: "NNT", m1:"6.5", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
+  {tag: "MDD", id: "TCA", measure1: "NNT", m1:"8.5", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
+  {tag: "MDD", id: "SSRI", measure1: "NNT", m1:"6", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
+  {tag: "MDD", id: "SNRI", measure1: "NNT", m1:"6.5", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
 ]
 const anticoagulants = [
-  {id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:"4%", info: "compared to Placebo: http://www.thennt.com/nnt/warfarin-for-atrial-fibrillation-stroke-prevention/" },
-  {id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:"1.6%", info: "compared to Aspirin: http://www.thennt.com/nnt/warfarin-vs-aspirin-for-atrial-fibrillation-stroke-prevention/" }
+  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:"4%", info: "compared to Placebo: http://www.thennt.com/nnt/warfarin-for-atrial-fibrillation-stroke-prevention/" },
+  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:"1.6%", info: "compared to Aspirin: http://www.thennt.com/nnt/warfarin-vs-aspirin-for-atrial-fibrillation-stroke-prevention/" }
 ]
 
 const statinPrimaryCVD = [
-  {id: "Statin for 5 yrs", measure1:"saw no benefit" ,m1:"96%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {id: "Statin for 5 yrs", measure1:"save from death" ,m1:"1.2%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {id: "Statin for 5 yrs", measure1:"preventing repeat MI" ,m1:"2.6%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {id: "Statin for 5 yrs", measure1:"preventing stroke" ,m1:"0,8%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"}
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"saw no benefit" ,m1:"96%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"save from death" ,m1:"1.2%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing repeat MI" ,m1:"2.6%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing stroke" ,m1:"0,8%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"}
 ]
 
 //force bubbleChart
@@ -28568,24 +28565,10 @@ const antidepressantDetail = [
   {id: "Venlafaxine", measure1: "NNT", m1:"6", info: "http://www.publish.csiro.au/hc/pdf/HC16008" }
 ]
 
-//bar graph
-const statinNNTH = [
-  {measure1: "developing diabetes", m1: "2%", info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/" },
-  {measure1: "rhabdomyolysis", m1: "10%", info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/" }
-]
+// //bar graph
+// export const statinNNTH = [ {measure1: "developing diabetes", m1: "2%", info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/" },
+//   {measure1: "rhabdomyolysis", m1: "10%", info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/" } ]
 
-
-
-// if (dx===MDD) {
-//   select antidepressantClasses
-//   bubbleChart(antidepressantDetail)
-// } else if (dx===AFIB) {
-//   select anticoagulants
-// } else if (dx===CARDIOVASCULAR_DISEASE_PREV) {
-//   select statinPrimaryCVD
-//   bubbleChart(statin)
-//   bar graph (statinNNTH)
-// }
 
 
 /***/ }),
@@ -28635,12 +28618,14 @@ document.addEventListener("DOMContentLoaded", () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lineCircle", function() { return lineCircle; });
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "./node_modules/d3/index.js");
+/* harmony import */ var _drug_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./drug_data */ "./src/drug_data.js");
 
 
-const lineCircle = () => {
 
-var dataArray1 = [30, 35, 45, 55, 70];
-var dataArray2 = [50, 55, 45, 35, 20, 25, 25, 40];
+const dataSet = [_drug_data__WEBPACK_IMPORTED_MODULE_1__["antidepressantClasses"], _drug_data__WEBPACK_IMPORTED_MODULE_1__["anticoagulants"], _drug_data__WEBPACK_IMPORTED_MODULE_1__["statinPrimaryCVD"]]
+
+const lineCircle = (dataSet) => {
+
 
 //globals
 let dxChoice;
@@ -28649,8 +28634,8 @@ let color = d3__WEBPACK_IMPORTED_MODULE_0__["scaleOrdinal"]()
     .range(d3__WEBPACK_IMPORTED_MODULE_0__["schemeCategory10"]);
 var dataIndex = 1;
 var dataIndices = [dataArray1, dataArray2]; //will become options, aka named by dx and hold drug object data?
-var firstDataSet = dataIndices[0];
-var secDataSet = dataIndices[1];
+var firstDataSet = Object.values(dataSet[0]);
+var secDataSet = dataSet[1];
 var xBuffer = 50;
 var yBuffer = 150;
 var lineLength = 400;
@@ -28658,13 +28643,13 @@ var lineLength = 400;
 
 
 //create main svg element
-const svgDoc = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("body")
+const svgDoc = d3__WEBPACK_IMPORTED_MODULE_0__["select"](".tools")
     .append("div")
     .classed("svg-container", true) //container class to make it responsive
     .append("svg")
     //responsive SVG needs these 2 attributes and no width and height attr
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 600 400")
+    .attr("viewBox", "-75 0 600 300")
     //class to make it responsive
     .classed("svg-content-responsive", true);
 
@@ -28672,7 +28657,7 @@ const svgDoc = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("body")
 svgDoc.append("text")
     .attr("x", xBuffer + (lineLength / 2))
     .attr("y", 50)
-    .text("chose a dx"); //this uses old method of index toggle
+    .text("Outcomes Measures"); //this uses old method of index toggle
 
 //create axis line
 svgDoc.append("line")
@@ -28683,7 +28668,7 @@ svgDoc.append("line")
 //make basic cirles
 svgDoc.append("g").selectAll("circle")
     // .data(eval("dataArray"+dataIndex))
-    .data(dataIndices[0])
+    .data(dataSet[0])
     .enter()
     .append("circle")
     .attr("cx", function (d, i) {
@@ -28691,15 +28676,15 @@ svgDoc.append("g").selectAll("circle")
         return xBuffer + (i * spacing)
     })
     .attr("cy", yBuffer)
-    .attr("r", function (d, i) { return d })
+    .attr("r", function (d, i) { return d.m1 })
     .attr("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) });
 
 //create event handler for selected option's value
-d3__WEBPACK_IMPORTED_MODULE_0__["select"]("header").append('select')
+d3__WEBPACK_IMPORTED_MODULE_0__["select"](".tools").append('select')
     .on('change', function () {
 
         dxChoice = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('select').property('value')
-        dxChoice = dxChoice.split(',');
+        // dxChoice = dxChoice.split(',');
        
 
         circle = svgDoc.select("g").selectAll("circle")
@@ -28718,18 +28703,27 @@ d3__WEBPACK_IMPORTED_MODULE_0__["select"]("header").append('select')
                 return xBuffer + (i * spacing)
             })
             .attr("cy", yBuffer)
-            .attr("r", function (d, i) { return d })
+            .attr("r", function (d, i) { return d.m1 })
             .attr("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) });
 
 
         d3__WEBPACK_IMPORTED_MODULE_0__["select"]("text").text(dxChoice);
     })
     .selectAll('option')
-    .data(dataIndices)
+    .data(dataSet)
     .enter()
     .append('option')
     .attr('value', function (d) { return d })
-    .text(function (d) { return d })
+    .text(function (d) { 
+        if (d.m1 === "warfarin"){
+        return "A.Fib Stroke Prevention" } else if 
+        (d.m1 === "Statin for 5 yrs")
+        {
+            return "Primary CVD Prevention";
+        } else {
+            return "MDD";
+        }});
+    
 }
 
 /***/ }),
