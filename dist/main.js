@@ -28340,7 +28340,7 @@ const bubbleChart = () => {
         // data = data.sort(function(a,b){ return b.size - a.size; });
         var div = selection,
             svg = div.selectAll('svg');
-        svg.attr('width', width).attr('height', height);
+        // svg.attr('width', width).attr('height', height);
 
         var tooltip = selection
             .append("div")
