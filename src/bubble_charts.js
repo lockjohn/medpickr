@@ -14,7 +14,7 @@ export const bubbleChart = () => {
 
     function chart(selection) {
         var data = selection.datum();
-        console.log(".datum:", data);
+       
         // data = data.sort(function(a,b){ return b.size - a.size; });
         var div = selection,
             svg = div.selectAll('svg');
@@ -55,7 +55,7 @@ export const bubbleChart = () => {
 
               //update the simulation based on the data
           simulation.nodes(data).force("collide", d3.forceCollide().radius(function(d){
-            console.log(scaleRadius(d.m1));
+        
             return scaleRadius(d.m1);
           }).iterations(2)).on("tick", function(d){
                     node

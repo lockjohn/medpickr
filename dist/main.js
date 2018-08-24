@@ -28336,7 +28336,7 @@ const bubbleChart = () => {
 
     function chart(selection) {
         var data = selection.datum();
-        console.log(".datum:", data);
+       
         // data = data.sort(function(a,b){ return b.size - a.size; });
         var div = selection,
             svg = div.selectAll('svg');
@@ -28377,7 +28377,7 @@ const bubbleChart = () => {
 
               //update the simulation based on the data
           simulation.nodes(data).force("collide", d3__WEBPACK_IMPORTED_MODULE_0__["forceCollide"]().radius(function(d){
-            console.log(scaleRadius(d.m1));
+        
             return scaleRadius(d.m1);
           }).iterations(2)).on("tick", function(d){
                     node
@@ -28525,21 +28525,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "statin", function() { return statin; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "antidepressantDetail", function() { return antidepressantDetail; });
 
+
 const antidepressantClasses = [
-  {tag: "MDD", id: "TCA", measure1: "NNT", m1:"8.5", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
-  {tag: "MDD", id: "SSRI", measure1: "NNT", m1:"6", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
-  {tag: "MDD", id: "SNRI", measure1: "NNT", m1:"6.5", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
+  {tag: "MDD", id: "TCA", measure1: "NNT", m1:8.5, info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
+  {tag: "MDD", id: "SSRI", measure1: "NNT", m1:6, info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
+  {tag: "MDD", id: "SNRI", measure1: "NNT", m1:6.5, info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
 ]
 const anticoagulants = [
-  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:"4%", info: "compared to Placebo: http://www.thennt.com/nnt/warfarin-for-atrial-fibrillation-stroke-prevention/" },
-  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:"1.6%", info: "compared to Aspirin: http://www.thennt.com/nnt/warfarin-vs-aspirin-for-atrial-fibrillation-stroke-prevention/" }
+  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:.04, info: "compared to Placebo: http://www.thennt.com/nnt/warfarin-for-atrial-fibrillation-stroke-prevention/" },
+  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:.16, info: "compared to Aspirin: http://www.thennt.com/nnt/warfarin-vs-aspirin-for-atrial-fibrillation-stroke-prevention/" }
 ]
 
 const statinPrimaryCVD = [
-  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"saw no benefit" ,m1:"96%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"save from death" ,m1:"1.2%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing repeat MI" ,m1:"2.6%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing stroke" ,m1:"0,8%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"}
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"saw no benefit" ,m1:.96 ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"save from death" ,m1:.01 ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing repeat MI" ,m1:.026 ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing stroke" ,m1:.008 ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"}
 ]
 
 //force bubbleChart
@@ -28600,8 +28601,8 @@ document.addEventListener("DOMContentLoaded", () => {
     d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#chart').datum(_drug_data__WEBPACK_IMPORTED_MODULE_1__["statin"]).call(chart);
     
     Object(_pills__WEBPACK_IMPORTED_MODULE_3__["default"])();
-    
-    Object(_line_circ__WEBPACK_IMPORTED_MODULE_4__["lineCircle"])();
+    const dataSet = [_drug_data__WEBPACK_IMPORTED_MODULE_1__["antidepressantClasses"], _drug_data__WEBPACK_IMPORTED_MODULE_1__["anticoagulants"], _drug_data__WEBPACK_IMPORTED_MODULE_1__["statinPrimaryCVD"]];
+    Object(_line_circ__WEBPACK_IMPORTED_MODULE_4__["lineCircle"])(dataSet);
 
 });
 
@@ -28618,11 +28619,10 @@ document.addEventListener("DOMContentLoaded", () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lineCircle", function() { return lineCircle; });
 /* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "./node_modules/d3/index.js");
-/* harmony import */ var _drug_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./drug_data */ "./src/drug_data.js");
 
 
 
-const dataSet = [_drug_data__WEBPACK_IMPORTED_MODULE_1__["antidepressantClasses"], _drug_data__WEBPACK_IMPORTED_MODULE_1__["anticoagulants"], _drug_data__WEBPACK_IMPORTED_MODULE_1__["statinPrimaryCVD"]]
+
 
 const lineCircle = (dataSet) => {
 
@@ -28632,10 +28632,9 @@ let dxChoice;
 let circle;
 let color = d3__WEBPACK_IMPORTED_MODULE_0__["scaleOrdinal"]()
     .range(d3__WEBPACK_IMPORTED_MODULE_0__["schemeCategory10"]);
-var dataIndex = 1;
-var dataIndices = [dataArray1, dataArray2]; //will become options, aka named by dx and hold drug object data?
-var firstDataSet = Object.values(dataSet[0]);
+var firstDataSet = dataSet[0];
 var secDataSet = dataSet[1];
+var thirdDataSet = dataSet[2];
 var xBuffer = 50;
 var yBuffer = 150;
 var lineLength = 400;
@@ -28668,24 +28667,43 @@ svgDoc.append("line")
 //make basic cirles
 svgDoc.append("g").selectAll("circle")
     // .data(eval("dataArray"+dataIndex))
-    .data(dataSet[0])
+    .data(firstDataSet)//array of objects
     .enter()
-    .append("circle")
+    .append("circle")//each circle should be tied to an object in that array
     .attr("cx", function (d, i) {
         var spacing = lineLength / (firstDataSet.length);
         return xBuffer + (i * spacing)
     })
     .attr("cy", yBuffer)
-    .attr("r", function (d, i) { return d.m1 })
+    .attr("r", function (d, i) { return d.m1 * 10 })
     .attr("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) });
+
 
 //create event handler for selected option's value
 d3__WEBPACK_IMPORTED_MODULE_0__["select"](".tools").append('select')
     .on('change', function () {
+        
 
-        dxChoice = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('select').property('value')
-        // dxChoice = dxChoice.split(',');
-       
+        var choice = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('select').property('value')
+
+        if (choice === "MDD") {
+            dxChoice = firstDataSet;
+        } else if (choice === "AFib") {
+            dxChoice = secDataSet;
+        } else {
+            dxChoice = thirdDataSet;
+        }
+        console.log(dxChoice);
+        console.log(d3__WEBPACK_IMPORTED_MODULE_0__["min"](dxChoice));
+        //need to iterate through whole dxChoice for a set of all the m1s... 
+        var data =  function (dxChoice) {
+           return dxChoice.map(dx => dx.m1)
+        }
+        var dataArray = data(dxChoice);
+        console.log(d3__WEBPACK_IMPORTED_MODULE_0__["min"](dataArray));
+        console.log(d3__WEBPACK_IMPORTED_MODULE_0__["max"](dataArray));
+        var scaleRadius = d3__WEBPACK_IMPORTED_MODULE_0__["scaleLinear"]().domain([d3__WEBPACK_IMPORTED_MODULE_0__["min"](dataArray), d3__WEBPACK_IMPORTED_MODULE_0__["max"](dataArray)]).range([20, 60])
+        // console.log(scaleRadius());
 
         circle = svgDoc.select("g").selectAll("circle")
             .data(dxChoice);
@@ -28703,26 +28721,27 @@ d3__WEBPACK_IMPORTED_MODULE_0__["select"](".tools").append('select')
                 return xBuffer + (i * spacing)
             })
             .attr("cy", yBuffer)
-            .attr("r", function (d, i) { return d.m1 })
+            .attr("r", function (d, i) { 
+                console.log(scaleRadius(d.m1));
+                
+                return scaleRadius(d.m1) })
             .attr("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) });
-
-
-        d3__WEBPACK_IMPORTED_MODULE_0__["select"]("text").text(dxChoice);
+            // .append("text")
+            // .attr("x", xBuffer + (lineLength / 2))
+            // .attr("y", 70)
+            // .text(d.measure1);
+        // d3.select("text").text(dxChoice);
     })
     .selectAll('option')
-    .data(dataSet)
+    .data(dataSet) //bind options to the three members of dataset
     .enter()
     .append('option')
-    .attr('value', function (d) { return d })
+    .attr('value', function (d) {
+       console.log(d[0].tag)
+         return d[0].tag })
     .text(function (d) { 
-        if (d.m1 === "warfarin"){
-        return "A.Fib Stroke Prevention" } else if 
-        (d.m1 === "Statin for 5 yrs")
-        {
-            return "Primary CVD Prevention";
-        } else {
-            return "MDD";
-        }});
+        console.log(d[0].tag);
+        return d[0].tag});
     
 }
 

@@ -1,19 +1,20 @@
 
+
 export const antidepressantClasses = [
-  {tag: "MDD", id: "TCA", measure1: "NNT", m1:"8.5", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
-  {tag: "MDD", id: "SSRI", measure1: "NNT", m1:"6", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
-  {tag: "MDD", id: "SNRI", measure1: "NNT", m1:"6.5", info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
+  {tag: "MDD", id: "TCA", measure1: "NNT", m1:8.5, info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
+  {tag: "MDD", id: "SSRI", measure1: "NNT", m1:6, info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
+  {tag: "MDD", id: "SNRI", measure1: "NNT", m1:6.5, info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
 ]
 export const anticoagulants = [
-  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:"4%", info: "compared to Placebo: http://www.thennt.com/nnt/warfarin-for-atrial-fibrillation-stroke-prevention/" },
-  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:"1.6%", info: "compared to Aspirin: http://www.thennt.com/nnt/warfarin-vs-aspirin-for-atrial-fibrillation-stroke-prevention/" }
+  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:.04, info: "compared to Placebo: http://www.thennt.com/nnt/warfarin-for-atrial-fibrillation-stroke-prevention/" },
+  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:.16, info: "compared to Aspirin: http://www.thennt.com/nnt/warfarin-vs-aspirin-for-atrial-fibrillation-stroke-prevention/" }
 ]
 
 export const statinPrimaryCVD = [
-  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"saw no benefit" ,m1:"96%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"save from death" ,m1:"1.2%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing repeat MI" ,m1:"2.6%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing stroke" ,m1:"0,8%" ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"}
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"saw no benefit" ,m1:.96 ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"save from death" ,m1:.01 ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing repeat MI" ,m1:.026 ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing stroke" ,m1:.008 ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"}
 ]
 
 //force bubbleChart

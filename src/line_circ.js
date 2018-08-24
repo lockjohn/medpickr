@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
-import { antidepressantClasses, anticoagulants, statinPrimaryCVD, statin } from "./drug_data";
 
-const dataSet = [antidepressantClasses, anticoagulants, statinPrimaryCVD]
+
+
 
 export const lineCircle = (dataSet) => {
 
@@ -11,10 +11,9 @@ let dxChoice;
 let circle;
 let color = d3.scaleOrdinal()
     .range(d3.schemeCategory10);
-var dataIndex = 1;
-var dataIndices = [dataArray1, dataArray2]; //will become options, aka named by dx and hold drug object data?
-var firstDataSet = Object.values(dataSet[0]);
+var firstDataSet = dataSet[0];
 var secDataSet = dataSet[1];
+var thirdDataSet = dataSet[2];
 var xBuffer = 50;
 var yBuffer = 150;
 var lineLength = 400;
@@ -47,24 +46,43 @@ svgDoc.append("line")
 //make basic cirles
 svgDoc.append("g").selectAll("circle")
     // .data(eval("dataArray"+dataIndex))
-    .data(dataSet[0])
+    .data(firstDataSet)//array of objects
     .enter()
-    .append("circle")
+    .append("circle")//each circle should be tied to an object in that array
     .attr("cx", function (d, i) {
         var spacing = lineLength / (firstDataSet.length);
         return xBuffer + (i * spacing)
     })
     .attr("cy", yBuffer)
-    .attr("r", function (d, i) { return d.m1 })
+    .attr("r", function (d, i) { return d.m1 * 10 })
     .attr("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) });
+
 
 //create event handler for selected option's value
 d3.select(".tools").append('select')
     .on('change', function () {
+        
 
-        dxChoice = d3.select('select').property('value')
-        // dxChoice = dxChoice.split(',');
-       
+        var choice = d3.select('select').property('value')
+
+        if (choice === "MDD") {
+            dxChoice = firstDataSet;
+        } else if (choice === "AFib") {
+            dxChoice = secDataSet;
+        } else {
+            dxChoice = thirdDataSet;
+        }
+        console.log(dxChoice);
+        console.log(d3.min(dxChoice));
+        //need to iterate through whole dxChoice for a set of all the m1s... 
+        var data =  function (dxChoice) {
+           return dxChoice.map(dx => dx.m1)
+        }
+        var dataArray = data(dxChoice);
+        console.log(d3.min(dataArray));
+        console.log(d3.max(dataArray));
+        var scaleRadius = d3.scaleLinear().domain([d3.min(dataArray), d3.max(dataArray)]).range([20, 60])
+        // console.log(scaleRadius());
 
         circle = svgDoc.select("g").selectAll("circle")
             .data(dxChoice);
@@ -82,25 +100,26 @@ d3.select(".tools").append('select')
                 return xBuffer + (i * spacing)
             })
             .attr("cy", yBuffer)
-            .attr("r", function (d, i) { return d.m1 })
+            .attr("r", function (d, i) { 
+                console.log(scaleRadius(d.m1));
+                
+                return scaleRadius(d.m1) })
             .attr("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) });
-
-
-        d3.select("text").text(dxChoice);
+            // .append("text")
+            // .attr("x", xBuffer + (lineLength / 2))
+            // .attr("y", 70)
+            // .text(d.measure1);
+        // d3.select("text").text(dxChoice);
     })
     .selectAll('option')
-    .data(dataSet)
+    .data(dataSet) //bind options to the three members of dataset
     .enter()
     .append('option')
-    .attr('value', function (d) { return d })
+    .attr('value', function (d) {
+       console.log(d[0].tag)
+         return d[0].tag })
     .text(function (d) { 
-        if (d.m1 === "warfarin"){
-        return "A.Fib Stroke Prevention" } else if 
-        (d.m1 === "Statin for 5 yrs")
-        {
-            return "Primary CVD Prevention";
-        } else {
-            return "MDD";
-        }});
+        console.log(d[0].tag);
+        return d[0].tag});
     
 }

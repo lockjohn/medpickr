@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     d3.select('#chart').datum(statin).call(chart);
     
     pills();
-    
-    lineCircle();
+    const dataSet = [antidepressantClasses, anticoagulants, statinPrimaryCVD];
+    lineCircle(dataSet);
 
 });
