@@ -28603,6 +28603,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _drug_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./drug_data */ "./src/drug_data.js");
 /* harmony import */ var _bubble_charts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bubble_charts */ "./src/bubble_charts.js");
 /* harmony import */ var _pills__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pills */ "./src/pills.js");
+/* harmony import */ var _line_circ__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./line_circ */ "./src/line_circ.js");
 
 
 
@@ -28614,11 +28615,122 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var chart = Object(_bubble_charts__WEBPACK_IMPORTED_MODULE_2__["bubbleChart"])().width(1000).height(500);
     d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#chart').datum(_drug_data__WEBPACK_IMPORTED_MODULE_1__["statin"]).call(chart);
+    
     Object(_pills__WEBPACK_IMPORTED_MODULE_3__["default"])();
-
-
+    
+    Object(_line_circ__WEBPACK_IMPORTED_MODULE_4__["lineCircle"])();
 
 });
+
+/***/ }),
+
+/***/ "./src/line_circ.js":
+/*!**************************!*\
+  !*** ./src/line_circ.js ***!
+  \**************************/
+/*! exports provided: lineCircle */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lineCircle", function() { return lineCircle; });
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "./node_modules/d3/index.js");
+
+
+const lineCircle = () => {
+
+var dataArray1 = [30, 35, 45, 55, 70];
+var dataArray2 = [50, 55, 45, 35, 20, 25, 25, 40];
+
+//globals
+let dxChoice;
+let circle;
+let color = d3__WEBPACK_IMPORTED_MODULE_0__["scaleOrdinal"]()
+    .range(d3__WEBPACK_IMPORTED_MODULE_0__["schemeCategory10"]);
+var dataIndex = 1;
+var dataIndices = [dataArray1, dataArray2]; //will become options, aka named by dx and hold drug object data?
+var firstDataSet = dataIndices[0];
+var secDataSet = dataIndices[1];
+var xBuffer = 50;
+var yBuffer = 150;
+var lineLength = 400;
+
+
+
+//create main svg element
+const svgDoc = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("body")
+    .append("div")
+    .classed("svg-container", true) //container class to make it responsive
+    .append("svg")
+    //responsive SVG needs these 2 attributes and no width and height attr
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 600 400")
+    //class to make it responsive
+    .classed("svg-content-responsive", true);
+
+//make desciption text
+svgDoc.append("text")
+    .attr("x", xBuffer + (lineLength / 2))
+    .attr("y", 50)
+    .text("chose a dx"); //this uses old method of index toggle
+
+//create axis line
+svgDoc.append("line")
+    .attr("x1", xBuffer)
+    .attr("y1", yBuffer)
+    .attr("x1", xBuffer + lineLength)
+    .attr("y2", yBuffer)
+//make basic cirles
+svgDoc.append("g").selectAll("circle")
+    // .data(eval("dataArray"+dataIndex))
+    .data(dataIndices[0])
+    .enter()
+    .append("circle")
+    .attr("cx", function (d, i) {
+        var spacing = lineLength / (firstDataSet.length);
+        return xBuffer + (i * spacing)
+    })
+    .attr("cy", yBuffer)
+    .attr("r", function (d, i) { return d })
+    .attr("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) });
+
+//create event handler for selected option's value
+d3__WEBPACK_IMPORTED_MODULE_0__["select"]("header").append('select')
+    .on('change', function () {
+
+        dxChoice = d3__WEBPACK_IMPORTED_MODULE_0__["select"]('select').property('value')
+        dxChoice = dxChoice.split(',');
+       
+
+        circle = svgDoc.select("g").selectAll("circle")
+            .data(dxChoice);
+       
+        circle.exit().remove();
+        circle.enter().append("circle")
+            .attr("r", 0);
+        
+        svgDoc.select("g").selectAll("circle")
+            .data(dxChoice).transition()
+            .duration(500)
+            .attr("cx", function (d, i) {
+              
+                var spacing = lineLength / (dxChoice.length);
+                return xBuffer + (i * spacing)
+            })
+            .attr("cy", yBuffer)
+            .attr("r", function (d, i) { return d })
+            .attr("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) });
+
+
+        d3__WEBPACK_IMPORTED_MODULE_0__["select"]("text").text(dxChoice);
+    })
+    .selectAll('option')
+    .data(dataIndices)
+    .enter()
+    .append('option')
+    .attr('value', function (d) { return d })
+    .text(function (d) { return d })
+}
 
 /***/ }),
 

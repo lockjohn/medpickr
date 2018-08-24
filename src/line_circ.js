@@ -1,12 +1,14 @@
 import * as d3 from 'd3';
 
-export const dataArray1 = [30, 35, 45, 55, 70];
-export const dataArray2 = [50, 55, 45, 35, 20, 25, 25, 40];
+export const lineCircle = () => {
+
+var dataArray1 = [30, 35, 45, 55, 70];
+var dataArray2 = [50, 55, 45, 35, 20, 25, 25, 40];
 
 //globals
 let dxChoice;
 let circle;
-let color = d3.scaleOrdainal()
+let color = d3.scaleOrdinal()
     .range(d3.schemeCategory10);
 var dataIndex = 1;
 var dataIndices = [dataArray1, dataArray2]; //will become options, aka named by dx and hold drug object data?
@@ -91,3 +93,4 @@ d3.select("header").append('select')
     .append('option')
     .attr('value', function (d) { return d })
     .text(function (d) { return d })
+}
