@@ -1,23 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+html, body {
+}
 .main-head {
   grid-area: header;
+  font-size: 64px;
+  padding-left: 60px;
+  position: sticky;
 }
 .content {
   grid-area: content;
 }
 .main-nav {
   grid-area: nav;
+  border: ghostwhite 1px solid;
 }
 .side {
   grid-area: sidebar;
+  border: ghostwhite 1px solid;
 }
 .tools {
+  padding-top: 10px;
   grid-area: tools;
+  border: ghostwhite 1px solid;
 }
 .main-footer {
   grid-area: footer;
 }
 
 .wrapper {
+    font-family: 'Comfortaa', cursive;
     display: grid;
     grid-gap: 20px;
     grid-template-areas: 
@@ -27,6 +39,10 @@
         "sidebar"
         "tools"
         "footer";
+
+    background-color: rgb(188,190,192);
+    padding-right: 60px;
+    /* box-shadow: -40px 40px 80px -30px rgba(7, 7, 10, .5); */
 }
 /* two column layout */
 
@@ -55,16 +71,32 @@ nav ul {
         "nav     nav     nav"
         "sidebar content content"
         "sidebar content content"
-        "tools tools tools"
+        "sidebar tools tools"
         "footer  footer  footer"
 }
 }
 
-button  {float:left}
-line    {stroke:#ddd;shape-rendering: crispEdges;}
+select { 
+  border: none;
+  width: 20%;
+  height: 40px;
+}
+option {
+  font-size: 14px;
+}
+line    {stroke:rgb(136, 133, 133);shape-rendering: crispEdges;}
 text    {text-anchor:middle;}
-circle {stroke:orange;fill-opacity:0.5;}
+circle {stroke:orange;fill-opacity:0.7;}
 .axis line {fill:none;stroke:#ddd;shape-rendering: crispEdges;}
 .axis path  {fill:none;}
 .axis text {font-size:0.7em;fill:#555;font-family:sans-serif}
+svg {background-color: ghostwhite;
+  box-shadow: 0px 40px 80px -30px rgba(7, 7, 10, .5);
+  margin-bottom: 60px;
+  transition: all .4s cubic-bezier(.03,.98,.52,.99);
+}
+svg:hover {
+  transition: all 1s cubic-bezier(.03,.98,.52,.99);
+  box-shadow: 30px 80px 120px -60px rgba(7, 7, 10, .7);
+}
 
