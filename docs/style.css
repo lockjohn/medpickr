@@ -4,12 +4,23 @@ html, body {
 }
 .main-head {
   grid-area: header;
-  font-size: 64px;
+  font-size: 2em;
   padding-left: 60px;
   position: sticky;
+  margin-bottom: 0;
 }
-.content {
-  grid-area: content;
+
+h1 {margin-bottom: 0;}
+
+.main-head h2 {
+  font-size: 1.5em;
+  margin-top: 0%;
+}
+.content1 {
+  grid-area: content1;
+}
+.content2 {
+  grid-area: content2;
 }
 .main-nav {
   display: none;
@@ -49,7 +60,8 @@ html, body {
     grid-template-areas: 
         "header"
         "nav"
-        "content"
+        "content1"
+        "content2"
         "sidebar"
         "tools"
         "footer";
@@ -66,7 +78,8 @@ html, body {
     grid-template-areas: 
         "header  header"
         "nav     nav"
-        "sidebar content"
+        "sidebar content1"
+        "sidebar content2"
         "sidebar tools"
         "footer  footer"
 }
@@ -83,8 +96,8 @@ nav ul {
     grid-template-areas:
         "header  header  header"
         "nav     nav     nav"
-        "sidebar content content"
-        "sidebar content content"
+        "sidebar content1 content2"
+        "sidebar content1 content2"
         "sidebar tools tools"
         "footer  footer  footer"
 }
