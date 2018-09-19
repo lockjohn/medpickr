@@ -5,7 +5,7 @@ html, body {
 .main-head {
   grid-area: header;
   font-size: 2em;
-  padding-left: 60px;
+  padding-left: 0px;
   position: sticky;
   margin-bottom: 0;
 }
@@ -71,34 +71,38 @@ aside p {
 
 .wrapper {
     font-family: 'Comfortaa', cursive;
-    display: grid;
-    grid-gap: 20px;
+    /* grid-gap: 20px; */
+    /* grid-template-columns: 2fr;
     grid-template-areas: 
         "header"
         "nav"
+        "sidebar1"
         "content1"
         "content2"
-        "sidebar1"
         "sidebar2"
         "tools"
-        "footer";
-
+        "footer"; */
     background-color: rgb(188,190,192);
-    padding-right: 60px;
+    padding: 20px;
     /* box-shadow: -40px 40px 80px -30px rgba(7, 7, 10, .5); */
 }
 /* two column layout */
 
 @media (min-width: 450px) {
 .wrapper {
+    display: grid;
+    grid-gap: 20px;
     grid-template-columns: 1fr 3fr; 
     grid-template-areas: 
         "header  header"
         "nav     nav"
         "sidebar1 content1"
-        "sidebar2 content2"
-        "tools tools"
+        "sidebar1 content2"
+        "sidebar2 tools"
         "footer  footer"
+}
+.main-head {
+  padding-left: 60px;
 }
 }
 
