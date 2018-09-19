@@ -28352,7 +28352,8 @@ const bubbleChart = () => {
             .style("border-radius", "6px")
             .style("text-align", "center")
             .style("font-family", "monospace")
-            .style("width", "400px")
+            .style("width", "200px")
+            .style("height", "auto")
             .text("");
 
 
@@ -28532,28 +28533,28 @@ const antidepressantClasses = [
   {tag: "MDD", id: "SNRI", measure1: "NNT", m1:6.5, info: "http://www.publish.csiro.au/hc/pdf/HC16008" },
 ]
 const anticoagulants = [
-  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:.04, info: "compared to Placebo: http://www.thennt.com/nnt/warfarin-for-atrial-fibrillation-stroke-prevention/" },
-  {tag: "AFib", id: "Warfarin", measure1: "helped by preventing 1 stroke", m1:.16, info: "compared to Aspirin: http://www.thennt.com/nnt/warfarin-vs-aspirin-for-atrial-fibrillation-stroke-prevention/" }
+  {tag: "AFib", id: "Warfarin", measure1: "% of pts helped by preventing 1 stroke compared to placebo:", m1:.04, info: "compared to Placebo: http://www.thennt.com/nnt/warfarin-for-atrial-fibrillation-stroke-prevention/" },
+  {tag: "AFib", id: "Warfarin", measure1: "% of pts helped by preventing 1 stroke compared to Aspirin:", m1:.16, info: "compared to Aspirin: http://www.thennt.com/nnt/warfarin-vs-aspirin-for-atrial-fibrillation-stroke-prevention/" }
 ]
 
 const statinPrimaryCVD = [
-  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"saw no benefit" ,m1:.96 ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"save from death" ,m1:.01 ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing repeat MI" ,m1:.026 ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
-  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing stroke" ,m1:.008 ,info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"}
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"saw no benefit", m1:.96, info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"save from death", m1:.01, info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing repeat MI", m1:.03, info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"},
+  {tag: "1ary CVD prevention", id: "Statin for 5 yrs", measure1:"preventing stroke", m1:.01, info:"http://www.thennt.com/nnt/statins-for-heart-disease-prevention-with-known-heart-disease/"}
 ]
 
 //force bubbleChart
 
 const statin = [
-  {id: "overall NNT", measure1: "To prevent cardiovascular death over 3.9 yrs", m1: "500", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article"},
-  {id: "overall NNT", measure1: "To prevent non-fatal MI 3.4 yrs", m1: "142", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article" },
-  {id: "overall NNT", measure1: "To prevent death over 3.2 yrs", m1: "188", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article" },
-  {id: "overall NNT", measure1: "To prevent stroke over 3.7 yrs", m1: "265", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article" },
-  {id: "annual NNT", measure1: "To prevent death", m1:"595", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article"},
-  {id: "annual NNT", measure1: "To prevent cardiovascular death", m1:"1949", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article" },
-  {id: "annual NNT", measure1: "To prevent non-fatal MI", m1:"483", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article" },
-  {id: "annual NNT", measure1: "To prevent stroke", m1:981, info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article" }
+  {id: "Overall NNT", measure1: "To prevent cardiovascular death over 3.9 yrs", m1: "500", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article"},
+  {id: "Overall NNT", measure1: "To prevent non-fatal MI 3.4 yrs", m1: "142", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article" },
+  {id: "Overall NNT", measure1: "To prevent death over 3.2 yrs", m1: "188", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article" },
+  {id: "Overall NNT", measure1: "To prevent stroke over 3.7 yrs", m1: "265", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article" },
+  {id: "Annual NNT", measure1: "To prevent death", m1:"595", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article"},
+  {id: "Annual NNT", measure1: "To prevent cardiovascular death", m1:"1949", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article" },
+  {id: "Annual NNT", measure1: "To prevent non-fatal MI", m1:"483", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article" },
+  {id: "Annual NNT", measure1: "To prevent stroke", m1: "981", info:"http://www.pulsetoday.co.uk/clinical/clinical-specialties/prescribing/nnts-for-common-conditions/20033555.article" }
 ]
 
 //will probably need to pass in a x100 modifier
@@ -28583,7 +28584,7 @@ const antidepressantDetail = [
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "./node_modules/d3/index.js");
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! d3 */ "./node_modules/d3/index.js");
 /* harmony import */ var _drug_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./drug_data */ "./src/drug_data.js");
 /* harmony import */ var _bubble_charts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./bubble_charts */ "./src/bubble_charts.js");
 /* harmony import */ var _pills__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pills */ "./src/pills.js");
@@ -28598,7 +28599,7 @@ __webpack_require__.r(__webpack_exports__);
 document.addEventListener("DOMContentLoaded", () => {
 
     var chart = Object(_bubble_charts__WEBPACK_IMPORTED_MODULE_2__["bubbleChart"])().width(1000).height(500);
-    d3__WEBPACK_IMPORTED_MODULE_0__["select"]('#chart').datum(_drug_data__WEBPACK_IMPORTED_MODULE_1__["statin"]).call(chart);
+    d3__WEBPACK_IMPORTED_MODULE_5__["select"]('#chart').datum(_drug_data__WEBPACK_IMPORTED_MODULE_1__["statin"]).call(chart);
     
     Object(_pills__WEBPACK_IMPORTED_MODULE_3__["default"])();
     
@@ -28657,9 +28658,9 @@ const lineCircle = (dataSet) => {
     svgDoc.append("text")
         .attr("x", xBuffer + (lineLength / 2))
         .attr("y", 50)
-        .text("Outcomes Measures"); //this uses old method of index toggle
+        .text("Drug Outcomes Measures by Dx"); //this uses old method of index toggle
 
-    var tooltip = d3__WEBPACK_IMPORTED_MODULE_0__["select"](".circles").append("div")
+    const tooltip1 = d3__WEBPACK_IMPORTED_MODULE_0__["select"](".circles").append("div")
         .style("position", "absolute")
         .style("visibility", "hidden")
         .style("color", "white")
@@ -28668,7 +28669,8 @@ const lineCircle = (dataSet) => {
         .style("border-radius", "6px")
         .style("text-align", "center")
         .style("font-family", "monospace")
-        .style("width", "400px")
+        .style("width", "100px")
+        .style("height", "auto")
         .text("");
 
     //create axis line
@@ -28692,14 +28694,14 @@ const lineCircle = (dataSet) => {
         .attr("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) });
 
     circles.on("mouseover", function (d) {
-        tooltip.html(d.id + "<br>" + d.measure1 + "<br>" + d.m1);
-        return tooltip.style("visibility", "visible");
+        tooltip1.html(d.id + "<br>" + d.measure1 + "<br>" + d.m1);
+        return tooltip1.style("visibility", "visible");
         })
         .on("mousemove", function () {
-        return tooltip.style("top", (d3__WEBPACK_IMPORTED_MODULE_0__["event"].pageY - 10) + "px").style("left", (d3__WEBPACK_IMPORTED_MODULE_0__["event"].pageX + 10) + "px");
+        return tooltip1.style("top", (d3__WEBPACK_IMPORTED_MODULE_0__["event"].pageY - 10) + "px").style("left", (d3__WEBPACK_IMPORTED_MODULE_0__["event"].pageX + 10) + "px");
         })
         .on("mouseout", function () {
-            return tooltip.style("visibility", "hidden");
+            return tooltip1.style("visibility", "hidden");
         });
 
     //create event handler for selected option's value
@@ -28756,11 +28758,9 @@ const lineCircle = (dataSet) => {
         .enter()
         .append('option')
         .attr('value', function (d) {
-            console.log(d[0].tag)
             return d[0].tag
         })
         .text(function (d) {
-            console.log(d[0].tag);
             return d[0].tag
         });
 
@@ -28777,7 +28777,7 @@ const lineCircle = (dataSet) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! d3 */ "./node_modules/d3/index.js");
+/* harmony import */ var d3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! d3 */ "./node_modules/d3/index.js");
 
 
 
@@ -28789,8 +28789,8 @@ __webpack_require__.r(__webpack_exports__);
     // const width = svg.attr("width");
     // const height = svg.attr("height");
     
-    let color = d3__WEBPACK_IMPORTED_MODULE_0__["scaleOrdinal"]()
-        .range(d3__WEBPACK_IMPORTED_MODULE_0__["schemeCategory10"]);
+    let color = d3__WEBPACK_IMPORTED_MODULE_1__["scaleOrdinal"]()
+        .range(d3__WEBPACK_IMPORTED_MODULE_1__["schemeCategory10"]);
 
     // const svgDoc = d3.select("#pills")
     //     .append("div")
@@ -28802,10 +28802,10 @@ __webpack_require__.r(__webpack_exports__);
     //     //class to make it responsive
     //     .classed("svg-content-responsive", true);
     
-    const   container = d3__WEBPACK_IMPORTED_MODULE_0__["select"]("#pills");
+    const   container = d3__WEBPACK_IMPORTED_MODULE_1__["select"]("#pills");
 
     container.on("click", function () {
-        let mouse = d3__WEBPACK_IMPORTED_MODULE_0__["mouse"](this);
+        let mouse = d3__WEBPACK_IMPORTED_MODULE_1__["mouse"](this);
 
         const pill = container
             .append("use")
@@ -28814,11 +28814,11 @@ __webpack_require__.r(__webpack_exports__);
             .attr("y", mouse[1])
             .style("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) })
 
-        const dragHandler = d3__WEBPACK_IMPORTED_MODULE_0__["drag"]()
+        const dragHandler = d3__WEBPACK_IMPORTED_MODULE_1__["drag"]()
             .on("drag", function () {
-                d3__WEBPACK_IMPORTED_MODULE_0__["select"](this)
-                    .attr("x", d3__WEBPACK_IMPORTED_MODULE_0__["event"].x)
-                    .attr("y", d3__WEBPACK_IMPORTED_MODULE_0__["event"].y);
+                d3__WEBPACK_IMPORTED_MODULE_1__["select"](this)
+                    .attr("x", d3__WEBPACK_IMPORTED_MODULE_1__["event"].x)
+                    .attr("y", d3__WEBPACK_IMPORTED_MODULE_1__["event"].y);
             });
 
         dragHandler(pill);

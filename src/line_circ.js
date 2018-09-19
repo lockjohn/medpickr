@@ -35,7 +35,7 @@ export const lineCircle = (dataSet) => {
     svgDoc.append("text")
         .attr("x", xBuffer + (lineLength / 2))
         .attr("y", 50)
-        .text("Outcomes Measures"); //this uses old method of index toggle
+        .text("Drug Outcomes Measures by Dx"); //this uses old method of index toggle
 
     const tooltip1 = d3.select(".circles").append("div")
         .style("position", "absolute")
@@ -46,8 +46,8 @@ export const lineCircle = (dataSet) => {
         .style("border-radius", "6px")
         .style("text-align", "center")
         .style("font-family", "monospace")
-        .style("width", "100%")
-        .style("height", "100%")
+        .style("width", "100px")
+        .style("height", "auto")
         .text("");
 
     //create axis line
@@ -135,11 +135,9 @@ export const lineCircle = (dataSet) => {
         .enter()
         .append('option')
         .attr('value', function (d) {
-            console.log(d[0].tag)
             return d[0].tag
         })
         .text(function (d) {
-            console.log(d[0].tag);
             return d[0].tag
         });
 

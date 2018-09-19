@@ -34,7 +34,10 @@ h1 {margin-bottom: 0;}
   justify-content: start;
   grid-area: sidebar1;
   padding-left: 25px;
-  border: ghostwhite 1px solid;
+}
+
+aside p {
+  text-align: right;
 }
 
 .side1 h2 {
@@ -48,7 +51,6 @@ h1 {margin-bottom: 0;}
   justify-content: space-between;
   grid-area: sidebar2;
   padding-left: 25px;
-  border: ghostwhite 1px solid;
 }
 
 .side2 h2 {
@@ -98,12 +100,8 @@ h1 {margin-bottom: 0;}
         "tools tools"
         "footer  footer"
 }
-nav ul {
-    display: flex;
-    justify-content: space-between;
-}
 
-}
+
 
 @media (min-width: 1000px) {
 .wrapper {
@@ -120,7 +118,7 @@ nav ul {
 
 select { 
   border: none;
-  width: 20%;
+  width: 40%;
   height: 40px;
 }
 option {
@@ -142,6 +140,3 @@ svg:hover {
   box-shadow: 30px 80px 120px -60px rgba(7, 7, 10, .7);
 }
 
-.tooltip {
-  
-}
