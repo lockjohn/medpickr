@@ -28,20 +28,34 @@ h1 {margin-bottom: 0;}
   border: ghostwhite 1px solid;
   /* visibility: hidden; */
 }
-.side {
+.side1 {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  grid-area: sidebar;
+  grid-area: sidebar1;
   padding-left: 25px;
-  /* border: ghostwhite 1px solid; */
+  border: ghostwhite 1px solid;
 }
 
-.side h2 {
+.side1 h2 {
  font-size: 30px;
  text-align: right;
- padding-bottom: 700px;
 }
+
+.side2 {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  grid-area: sidebar2;
+  padding-left: 25px;
+  border: ghostwhite 1px solid;
+}
+
+.side2 h2 {
+ font-size: 30px;
+ text-align: right;
+}
+
 .tools {
   padding-top: 10px;
   grid-area: tools;
@@ -62,7 +76,8 @@ h1 {margin-bottom: 0;}
         "nav"
         "content1"
         "content2"
-        "sidebar"
+        "sidebar1"
+        "sidebar2"
         "tools"
         "footer";
 
@@ -78,9 +93,9 @@ h1 {margin-bottom: 0;}
     grid-template-areas: 
         "header  header"
         "nav     nav"
-        "sidebar content1"
-        "sidebar content2"
-        "sidebar tools"
+        "sidebar1 content1"
+        "sidebar2 content2"
+        "tools tools"
         "footer  footer"
 }
 nav ul {
@@ -92,13 +107,13 @@ nav ul {
 
 @media (min-width: 1000px) {
 .wrapper {
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 2fr 2fr;
     grid-template-areas:
         "header  header  header"
         "nav     nav     nav"
-        "sidebar content1 content2"
-        "sidebar content1 content2"
-        "sidebar tools tools"
+        "sidebar1 content1 content2"
+        "sidebar1 content1 content2"
+        "sidebar2 tools tools"
         "footer  footer  footer"
 }
 }
