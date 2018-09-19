@@ -100,7 +100,7 @@ aside p {
         "tools tools"
         "footer  footer"
 }
-
+}
 
 
 @media (min-width: 1000px) {
@@ -139,4 +139,3 @@ svg:hover {
   transition: all 1s cubic-bezier(.03,.98,.52,.99);
   box-shadow: 30px 80px 120px -60px rgba(7, 7, 10, .7);
 }
-
