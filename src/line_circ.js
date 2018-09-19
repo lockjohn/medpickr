@@ -37,7 +37,7 @@ export const lineCircle = (dataSet) => {
         .attr("y", 50)
         .text("Outcomes Measures"); //this uses old method of index toggle
 
-    var tooltip = d3.select(".circles").append("div")
+    const tooltip1 = d3.select(".circles").append("div")
         .style("position", "absolute")
         .style("visibility", "hidden")
         .style("color", "white")
@@ -46,7 +46,8 @@ export const lineCircle = (dataSet) => {
         .style("border-radius", "6px")
         .style("text-align", "center")
         .style("font-family", "monospace")
-        .style("width", "400px")
+        .style("width", "100%")
+        .style("height", "100%")
         .text("");
 
     //create axis line
@@ -70,14 +71,14 @@ export const lineCircle = (dataSet) => {
         .attr("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) });
 
     circles.on("mouseover", function (d) {
-        tooltip.html(d.id + "<br>" + d.measure1 + "<br>" + d.m1);
-        return tooltip.style("visibility", "visible");
+        tooltip1.html(d.id + "<br>" + d.measure1 + "<br>" + d.m1);
+        return tooltip1.style("visibility", "visible");
         })
         .on("mousemove", function () {
-        return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
+        return tooltip1.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
         })
         .on("mouseout", function () {
-            return tooltip.style("visibility", "hidden");
+            return tooltip1.style("visibility", "hidden");
         });
 
     //create event handler for selected option's value

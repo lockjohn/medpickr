@@ -31,7 +31,7 @@ h1 {margin-bottom: 0;}
 .side1 {
   display: flex;
   flex-flow: column;
-  justify-content: space-between;
+  justify-content: start;
   grid-area: sidebar1;
   padding-left: 25px;
   border: ghostwhite 1px solid;
@@ -142,3 +142,6 @@ svg:hover {
   box-shadow: 30px 80px 120px -60px rgba(7, 7, 10, .7);
 }
 
+.tooltip {
+  
+}
