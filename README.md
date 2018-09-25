@@ -1,8 +1,7 @@
-link to live site:
-lockjohn.github.io/medpickr/
+[live site](lockjohn.github.io/medpickr/)
 
 ## medpickr
-*Drug data visualization app that supports physician treatment-selection*
+*A drug data visualization app that supports physician treatment-selection*
 
 
 ### Background and Overview
