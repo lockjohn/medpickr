@@ -3,12 +3,16 @@
 ## medpickr
 *A drug data visualization app that supports physician treatment-selection*
 
+![NNTVisual](./NNT_medpickr.png)
 
 ### Background and Overview
 
 medpickr is a medical descion support tool that uses data visualization to provide a gestalt synthesis of key drug metrics (NNT, NNH, interactions...) in order to compare drug effectiveness for a given diagnosis.
 Currently, key drug informatics are located in data silos: nested under descriptions of individual drugs and depicting information in non-visually distinct data tables using basic numerical representation in small font. This practice makes it difficulty to make quick and effective comparisons during the increasingly smaller amounts of allotted time per clinical encounter, as it inihibits both ease of accessing and gestalt comparision using biostatistical measures.
 
+![FullView](full_screen_medpickr.png)
+
+![OutcomesViz](/Outcome_medpickr.png)
 ### Functionality & MVP  
 Users can choose a diagnosis and see different drug treatment options
 Users can get more information about how each option compares in effectiveness to others by click or hovering
