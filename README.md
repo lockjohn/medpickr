@@ -1,4 +1,4 @@
-[live site](lockjohn.github.io/medpickr/)
+[live site](lockjohn.github.io/medpickr/ "medpickr")
 
 ## medpickr
 *A drug data visualization app that supports physician treatment-selection*
