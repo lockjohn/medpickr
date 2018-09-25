@@ -37,6 +37,69 @@ The project requires:
 `styles.css`
 
 
+### Code Snippet: 
+```javascript
+d3.select(".circles").append('select')
+        .on('change', function () {
+            var choice = d3.select('select').property('value')
+
+            if (choice === "MDD") {
+                dxChoice = firstDataSet;
+            } else if (choice === "AFib") {
+                dxChoice = secDataSet;
+            } else {
+                dxChoice = thirdDataSet;
+            }
+            console.log(dxChoice);
+            console.log(d3.min(dxChoice));
+            //need to iterate through whole dxChoice for a set of all the m1s... 
+            var data = function (dxChoice) {
+                return dxChoice.map(dx => dx.m1)
+            }
+            var dataArray = data(dxChoice);
+            console.log(d3.min(dataArray));
+            console.log(d3.max(dataArray));
+            var scaleRadius = d3.scaleLinear().domain([d3.min(dataArray), d3.max(dataArray)]).range([20, 60])
+            // console.log(scaleRadius());
+
+            circle = svgDoc.select("g").selectAll("circle")
+                .data(dxChoice);
+
+            circle.exit().remove();
+            circle.enter().append("circle")
+                .attr("r", 0);
+
+            svgDoc.select("g").selectAll("circle")
+                .data(dxChoice).transition()
+                .duration(500)
+                .attr("cx", function (d, i) {
+
+                    var spacing = lineLength / (dxChoice.length);
+                    return xBuffer + (i * spacing)
+                })
+                .attr("cy", yBuffer)
+                .attr("r", function (d, i) {
+                    console.log(scaleRadius(d.m1));
+
+                    return scaleRadius(d.m1)
+                })
+                .attr("fill", function (d, i) { return color(Math.floor(Math.random() * 11)) });
+
+
+        })
+        .selectAll('option')
+        .data(dataSet) //bind options to the three members of dataset
+        .enter()
+        .append('option')
+        .attr('value', function (d) {
+            return d[0].tag
+        })
+        .text(function (d) {
+            return d[0].tag
+        });
+
+```
+
 ### Follow-up features
 
 - [ ] Create Node.js back-end database to access more drug information
