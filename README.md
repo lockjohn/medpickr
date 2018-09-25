@@ -1,4 +1,4 @@
-[live site](lockjohn.github.io/medpickr/ "medpickr")
+# [Live App](http://lockjohn.github.io/medpickr/)
 
 ## medpickr
 *A drug data visualization app that supports physician treatment-selection*
@@ -37,3 +37,4 @@ The project requires:
 
 - [ ] Create Node.js back-end database to access more drug information
 - [ ] Include more dynamic data driven relative comparisons
+ 
